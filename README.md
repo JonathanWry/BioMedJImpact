@@ -52,6 +52,7 @@ Key modules under `src/bmj_pipeline/`:
 <p align="center">
   <img src="assets/LLM_pipeline.png" alt="Overview of pipeline" width="800"/>
 </p>
+
 - **Three-stage LLM prompts**: Stage 1 filters AI relevance, Stage 2 extracts keywords + LIST-A categories, Stage 3 validates keywords—exactly mirroring the pipeline evaluated via human annotation in the manuscript.
 - **Streaming PMC ingestion**: `parsing.iter_valid_articles` enforces ISSN/year filters, removes retractions, and normalizes metadata before invoking the LLM stages.
 - **Journal-year stats**: `StatsStore` mirrors the paper’s JSON schema, enabling incremental saves/checkpoints and later consolidation across OA sections.

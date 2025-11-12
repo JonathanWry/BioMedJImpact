@@ -3,7 +3,7 @@ set -euo pipefail
 module purge
 conda init bash >/dev/null 2>&1
 source ~/.bashrc
-conda activate gemma
+conda activate bmj-pipeline
 
 export PYTHONPATH=/users/rwan388/code/BioMedJImpact-LLM/src:${PYTHONPATH:-}
 

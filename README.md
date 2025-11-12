@@ -12,7 +12,6 @@ BioMedJImpact-LLM operationalizes the pipeline described in *BioMedJImpact: A Co
 BioMedJImpact-LLM/
 ├── configs/           # YAML configs for extract/sample jobs
 ├── data_schema/       # JSON schemas for emitted JSONL files
-├── examples/          # Local run how-tos (no Slurm)
 ├── scripts/           # Slurm wrappers for both pipelines
 ├── src/bmj_pipeline/  # Installable Python package
 ├── environment.yml    # Conda environment
@@ -47,9 +46,12 @@ Key modules under `src/bmj_pipeline/`:
    - `journal_tag_stats_XX.jsonl` + `processed_XX.txt` (schema in `data_schema/jsonl_stats.md`).
    - `sample_XX_XX_table.csv`, `sample_XX_XX_labels.xlsx`, `sample_XX_XX_logs.jsonl` (schema in `data_schema/sample_logs.md`).
 6. **Cluster launch**  
-   Submit `scripts/slurm_extract_archive.sh` or `scripts/slurm_sample_balanced.sh` after editing config paths; for local runs see `examples/run_local_extract.md` and `examples/run_local_sample.md`.
+   To run on cluster, submit `scripts/slurm_extract_archive.sh` or `scripts/slurm_sample_balanced.sh` after editing config paths; for local runs see `examples/run_local_extract.md` and `examples/run_local_sample.md`.
 
 ## Method Overview
+<p align="center">
+  <img src="assets/LLM_pipeline.png" alt="Overview of pipeline" width="800"/>
+</p>
 - **Three-stage LLM prompts**: Stage 1 filters AI relevance, Stage 2 extracts keywords + LIST-A categories, Stage 3 validates keywords—exactly mirroring the pipeline evaluated via human annotation in the manuscript.
 - **Streaming PMC ingestion**: `parsing.iter_valid_articles` enforces ISSN/year filters, removes retractions, and normalizes metadata before invoking the LLM stages.
 - **Journal-year stats**: `StatsStore` mirrors the paper’s JSON schema, enabling incremental saves/checkpoints and later consolidation across OA sections.

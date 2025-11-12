@@ -1,0 +1,24 @@
+archive: data_path/oa_comm_xml.PMC010xxxxx.baseline.2024-12-18.tar.gz
+processed_file: output_path_to/sample_processed_11.txt
+
+journal_csvs:
+  dataset1: data_path/Dataset1_final.csv
+  dataset2: data_path/Dataset2_final.csv
+
+model:
+  local_path: /scratch/rwan388/LLM/google/gemma-3-12b-it
+  gpu_memory_utilization: 0.9
+  max_model_len: 40000
+
+year_range:
+  min: 2016
+  max: 2023
+
+balanced_targets:
+  positive: 75
+  negative: 75
+
+outputs:
+  csv: output_path_to/sample_75_75_table_11.csv
+  excel: output_path_to/sample_75_75_labels_11.xlsx
+  jsonl: output_path_to/sample_75_75_logs_11.jsonl

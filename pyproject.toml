@@ -1,0 +1,26 @@
+[project]
+name = "bmj-pipeline"
+version = "0.1.0"
+description = "LLM-powered PMC extraction and sampling toolkit for BioMedJImpact."
+readme = "README.md"
+requires-python = ">=3.11"
+license = { file = "LICENSE" }
+keywords = ["biomedicine", "llm", "pmc", "ai-detection"]
+authors = [{ name = "BioMedJImpact Team" }]
+dependencies = [
+  "vllm>=0.5.4",
+  "pandas>=2.2",
+  "lxml>=5.2",
+  "tqdm>=4.66",
+  "pyyaml>=6.0",
+  "openpyxl>=3.1",
+]
+
+[project.urls]
+Repository = "https://example.com/BioMedJImpact-LLM"
+
+[tool.setuptools]
+package-dir = {"" = "src"}
+
+[tool.setuptools.packages.find]
+where = ["src"]
